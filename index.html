@@ -6,10 +6,17 @@
 	<title>Yasusayo</title>
 </head>
 <body style="background-color:black">
-	<p id="demo" style="color:white"></p>
+	<p id="demo" style="color:white">v: missing</p>
 	<a href="./s/main.zip" style="color:white;">main.zip</a>
 	<script>
-		document.getElementById("demo").innerHTML = "yasu"
+		const fs = require('fs')
+		fs.readFile('./s/version.txt', 'utf8' , (err, data) => {
+			if (err) {
+		    	console.error(err)
+		    	return
+			}
+			document.getElementById("demo").innerHTML = "v: " + data
+		})
 	</script>
 </body>
 </html>
